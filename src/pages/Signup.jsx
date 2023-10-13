@@ -42,7 +42,7 @@ const Signup = () => {
             setIsId(true);
             document.getElementById("idMessage").style.color = "black";
         }
-        if (document.getElementById("id").value == "") {
+        if (document.getElementById("id").value === "") {
             document.getElementById("idMessage").style.display = "none";
         } else {
             document.getElementById("idMessage").style.display = "block";
@@ -65,7 +65,7 @@ const Signup = () => {
             setIsPassword(true);
             document.getElementById("pwMessage").style.color = "black";
         }
-        if (document.getElementById("password").value == "") {
+        if (document.getElementById("password").value === "") {
             document.getElementById("pwMessage").style.display = "none";
         } else {
             document.getElementById("pwMessage").style.display = "block";
@@ -86,7 +86,7 @@ const Signup = () => {
             setIsEmail(true);
             document.getElementById("emailMessage").style.color = "black";
         }
-        if (document.getElementById("email").value == "") {
+        if (document.getElementById("email").value === "") {
             document.getElementById("emailMessage").style.display = "none";
         } else {
             document.getElementById("emailMessage").style.display = "block";
@@ -126,7 +126,7 @@ const Signup = () => {
                                 " disabled />
                             </Form.Group>
                             <AgreeUse />
-                            <Button onClick={goLogin} id="signupBtn" as="input" type="button" value="회원가입" />{''}
+                            <Button onClick={goLogin} id="signupBtn" as="input" type="submit" value="회원가입" />{''}
                             <p className="subTxt mb-5">* 커피타운은  Chrome, Firefox, Safari 브라우저에 최적화 되어있습니다.</p>
                         </Form>
                     </Col>

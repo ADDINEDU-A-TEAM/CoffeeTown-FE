@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: "JeonjuCraft";
     src: url("./fonts/JeonjuCraft_Go_Regular.ttf");
@@ -13,3 +12,119 @@
     font-family: "JeonjuCraft";
     // font-family: "NanumSquareNeo";
 }
+
+.greenTxt {
+    color: #007042;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+
+    .logo {
+        height: 100px;
+        cursor: pointer;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    li {
+        cursor: pointer;
+        // transition: all 0.3s;
+    }
+
+    .menuList {
+        display: flex;
+        align-items: center;
+    }
+
+    .menuList li {
+        padding: 25px;
+        font-size: 22px;
+    }
+
+    .menuList li:hover {
+        color: rgb(149, 3, 3);
+    }
+
+    .rMenuList {
+        display: flex;
+        align-items: center;
+    }
+
+    .rMenuList li::after {
+        content: '';
+        display: block;
+        height: 14px;
+        width: 1px;
+        background-color: #a4a4a4;
+        margin: 0 8px;
+    }
+
+    .rMenuList li:last-child::after {
+        width: 0;
+    }
+
+
+
+    .toggle {
+        display: none;
+        font-size: 1.5rem;
+        padding: 1rem 1rem;
+    }
+
+    .user {
+        display: none;
+        font-size: 1.5rem;
+        padding: 1rem 1rem;
+    }
+
+
+
+    @media screen and (max-width: 968px) {
+        flex-wrap: wrap;
+        .menuList {
+            flex-direction: column;
+            align-items: start;
+            width: 100%;
+            padding: 50px;
+            background-color: black;
+            color: #fff;
+            z-index: 10;
+        }
+        .rMenuList {
+            flex-direction: column;
+            align-items: end;
+            width: 100%;
+            padding: 50px;
+            background-color: black;
+            color: #fff;
+            z-index: 10;
+        }
+        .rMenuList li {
+            padding: 25px;
+            font-size: 24px;
+        }
+        .rMenuList li::after {
+            display: none;
+        }
+        .toggle {
+            display: flex;
+            align-items: center;
+            font-size: 34px;
+            cursor: pointer;
+        }
+        .user {
+            display: flex;
+            align-items: center;
+            font-size: 34px;
+            cursor: pointer;
+        }
+        .greenTxt {
+            color: rgb(255, 255, 255);
+        }
+    }
+}
+
