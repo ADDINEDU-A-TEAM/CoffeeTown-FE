@@ -1,10 +1,18 @@
-import './App.css';
+import React, { Fragment } from 'react';
+import './App.scss';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Login from './pages/Login';
+import { Reset } from 'styled-reset';
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <h1>CoffeeTown!</h1>
-    </div>
+    <Fragment>
+      <Reset />
+      <Header />
+      <Login />
+      <Footer />
+    </Fragment>
   );
 }
 
