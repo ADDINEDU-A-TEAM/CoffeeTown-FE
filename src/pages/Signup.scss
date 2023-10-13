@@ -14,7 +14,7 @@
     }
     .signupBox {
         width: 468px;
-        height: 1020px;
+        height: 1140px;
         padding: 45px 0;
         background-color: rgba(255,255,255,0.8);
         backdrop-filter: blur(10px);
@@ -72,13 +72,18 @@
         .btn {
             width: 80%;
             height: 54px;
-            margin-top: 14px;
+            margin-top: 44px;
             border-radius: 4px;
             font-size: 15px;
             border-color: #007042;
         }
         #signupBtn {
             background-color: #007042;
+        }
+        .message {
+            color: rgb(255, 0, 0);
+            margin: 4px 4px 0;
+            font-size: 14px;
         }
     }
 }

@@ -36,8 +36,8 @@ const AgreeUse = () => {
             <hr />
             {
                 data.map(item =>
-                    <p key={item.id} class="mt-2">
-                        <input type="checkbox" name={item.name} checked={item.isChk} onChange={changeInput} class="agreeCheck" />
+                    <p key={item.id} className="mt-2">
+                        <input type="checkbox" name={item.name} checked={item.isChk} onChange={changeInput} className="agreeCheck" />
                         <label>{item.text}</label>
                     </p>)
             }
