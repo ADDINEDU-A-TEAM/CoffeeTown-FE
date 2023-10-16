@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Main from './pages/Main';
 import { Reset } from 'styled-reset';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ const App = () => {
         <Routes>
           <Route path={"/"} element={<Login />}></Route>
           <Route path={"/Signup"} element={<Signup />}></Route>
+          <Route path={"/Main"} element={<Main />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

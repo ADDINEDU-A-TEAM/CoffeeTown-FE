@@ -18,6 +18,10 @@ const Login = () => {
         movePage('/Signup');
     }
 
+    function goMain(){
+        movePage('/Main');
+    }
+
     return (
         <Fragment>
             <Container fluid>
@@ -33,7 +37,7 @@ const Login = () => {
                                 <Form.Control type="password" placeholder="비밀번호를 입력해주세요." />
                             </Form.Group>
                             <p className="subTxt mb-5">* 커피타운은  Chrome, Firefox, Safari 브라우저에 최적화 되어있습니다.</p>
-                            <Button id="loginBtn" as="input" type="submit" value="로그인" />{''}
+                            <Button onClick={goMain} id="loginBtn" as="input" type="submit" value="로그인" />{''}
                             <Button onClick={goSignup} id="signupBtn" as="input" type="button" value="회원가입" />{''}
                         </Form>
                     </Col>

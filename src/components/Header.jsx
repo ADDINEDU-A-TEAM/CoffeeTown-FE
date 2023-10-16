@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+// import $ from "jquery";
 import styled from "styled-components";
 import { useState } from 'react';
 import logoImg from '../assets/images/logo_gnb_img.png';
@@ -8,7 +9,6 @@ import { faBars, faUser, faTimes } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
     const [isToggled, setIsToggled] = useState(false);
     const [userToggled, setUserToggled] = useState(false);
-
     const ToggleHeader = styled.div`
         @media screen and (max-width: 968px) {
             .menuList {
@@ -19,12 +19,12 @@ const Header = () => {
             }
         }
         `
-
+        
     return (
         <Fragment>
             <ToggleHeader className="header d-flex justify-content-around" isToggled={isToggled} userToggled={userToggled}>
                 {/* 햄버거 버튼(bar) */}
-                <div className="toggle" onClick={() => { setIsToggled(!isToggled); }}>
+                <div className={!isToggled ? 'toggle' : 'toggle clicked'} onClick={() => { setIsToggled(!isToggled); }}>
                     <FontAwesomeIcon icon={!isToggled ? faBars : faTimes} />
                 </div>
 
@@ -33,7 +33,7 @@ const Header = () => {
                 </div>
 
                 {/* 반응형 유저리스트 */}
-                <div className="user" onClick={() => { setUserToggled(!userToggled); }}>
+                <div className={!userToggled ? 'user' : 'user clicked'} onClick={() => { setUserToggled(!userToggled); }}>
                     <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
                 </div>
 

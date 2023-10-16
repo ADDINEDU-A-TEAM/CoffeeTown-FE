@@ -7,10 +7,12 @@
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
+
     .loginTxt {
         font-size: 44px;
         color: #fff;
     }
+
     .loginBox {
         width: 468px;
         height: 620px;
@@ -19,16 +21,19 @@
         backdrop-filter: blur(10px);
         box-shadow: 0 10px 25px rgba(51, 51, 51,0.5);
         border-radius: 5px;
+
         .wellcomeTxt {
             width: 100%;
             text-align: center;
             font-size: 22px;
             font-weight: bold;
             color: #323232;
+
             span {
                 color: #029357;
             }
         }
+
         .wellcomeTxt::after {
             content:'';
             display: block;
@@ -37,22 +42,27 @@
             height: 1px;
             background-color: #b4b4b4;
         }
+
         .formGroup {
             width: 80%;
+
+            input {
+                border-radius: 4px; 
+                font-size: 15px;
+                padding: 12px;
+            }
+    
+            input:focus {
+                border-color: #007042;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px rgba(158, 161, 158, 0.3);
+            }
         }
-        .formGroup input {
-            border-radius: 4px; 
-            font-size: 15px;
-            padding: 12px;
-        }
-        .formGroup input:focus {
-            border-color: #007042;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px rgba(158, 161, 158, 0.3);
-        }
+
         .subTxt {
             font-size: 12px;
             padding-left: 8px;
         }
+
         .btn {
             width: 80%;
             height: 54px;
@@ -61,9 +71,11 @@
             font-size: 15px;
             border-color: #007042;
         }
+
         #loginBtn {
             background-color: #007042;
         }
+
         #signupBtn {
             background-color: #e1e1e1;
             color: #000;
