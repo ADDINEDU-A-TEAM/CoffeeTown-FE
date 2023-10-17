@@ -1,0 +1,18 @@
+{
+    "item":[
+        {   
+            "id": 1,
+            "product_name": "아이스 아메리카노",
+            "product_price": "5000",
+            "product_ea": "1",
+            "product_image": "../../src/assets/images/bg_login_img.png"
+        },
+        {   
+            "id": 2,
+            "product_name": "아이스 카푸치노",
+            "product_price": "5400",
+            "product_ea": "1",
+            "product_image": "../../src/assets/images/bg_login_img_2.png"
+        }
+    ]
+}

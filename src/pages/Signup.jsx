@@ -17,17 +17,21 @@ const Signup = () => {
         movePage('/');
     }
 
-    const [id, setId] = React.useState("");
-    const [password, setPassword] = React.useState("");
-    const [email, setEmail] = React.useState("");
+    const [id, setId] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
 
-    const [idMessage, setIdMessage] = React.useState("");
-    const [passwordMessage, setPasswordMessage] = React.useState("");
-    const [emailMessage, setEmailMessage] = React.useState("");
+    const [idMessage, setIdMessage] = useState("");
+    const [passwordMessage, setPasswordMessage] = useState("");
+    const [emailMessage, setEmailMessage] = useState("");
 
-    const [isId, setIsId] = React.useState(false);
-    const [isPassword, setIsPassword] = React.useState(false);
-    const [isEmail, setIsEmail] = React.useState(false);
+    const [isId, setIsId] = useState(false);
+    const [isPassword, setIsPassword] = useState(false);
+    const [isEmail, setIsEmail] = useState(false);
+
+    console.log(isId);
+    console.log(isPassword);
+    console.log(isEmail);
 
     const onChangeId = (e) => {
         const currentId = e.target.value;

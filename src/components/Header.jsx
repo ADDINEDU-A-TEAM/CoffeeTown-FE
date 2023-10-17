@@ -1,28 +1,28 @@
 import React, { Fragment } from 'react';
-// import $ from "jquery";
 import styled from "styled-components";
 import { useState } from 'react';
 import logoImg from '../assets/images/logo_gnb_img.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUser, faTimes } from "@fortawesome/free-solid-svg-icons";
 
+const ToggleHeader = styled.div`
+@media screen and (max-width: 968px) {
+    .menuList {
+        display: ${(props) => (props.$isToggled ? "flex" : "none")};
+    }
+    .rMenuList {
+        display: ${(props) => (props.$userToggled ? "flex" : "none")};
+    }
+}
+`
+
 const Header = () => {
     const [isToggled, setIsToggled] = useState(false);
     const [userToggled, setUserToggled] = useState(false);
-    const ToggleHeader = styled.div`
-        @media screen and (max-width: 968px) {
-            .menuList {
-                display: ${(props) => (props.isToggled ? "flex" : "none")};
-            }
-            .rMenuList {
-                display: ${(props) => (props.userToggled ? "flex" : "none")};
-            }
-        }
-        `
         
     return (
         <Fragment>
-            <ToggleHeader className="header d-flex justify-content-around" isToggled={isToggled} userToggled={userToggled}>
+            <ToggleHeader className="header d-flex justify-content-around" $isToggled={isToggled} $userToggled={userToggled}>
                 {/* 햄버거 버튼(bar) */}
                 <div className={!isToggled ? 'toggle' : 'toggle clicked'} onClick={() => { setIsToggled(!isToggled); }}>
                     <FontAwesomeIcon icon={!isToggled ? faBars : faTimes} />

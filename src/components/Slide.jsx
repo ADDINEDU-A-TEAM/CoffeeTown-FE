@@ -1,65 +1,39 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-import React from "react";
+import React, { Component } from "react";
 import Slider from "react-slick";
-import SlideContent from "./SlideContent";
-import styled from "styled-components";
+import "./Slide.scss";
+import "./SlideTheme.scss";
+import "slick-carousel/slick/slick-theme.css";
+import slideImg1 from "../assets/images/slideImg1.jpg";
+import slideImg2 from "../assets/images/slideImg2.jpg";
+import slideImg3 from "../assets/images/slideImg3.jpg";
 
-const Wrap = styled.div`
-    margin: 5% auto;
-    width: 100%;
-    .slick-prev:before {
-        opaicty: 1; // 기존에 숨어있던 화살표 버튼이 보이게
-        color: black; // 버튼 색은 검은색으로
-        left: 0;
+export default class SimpleSlider extends Component {
+    render() {
+        const settings = {
+            dots: true,
+            arrow: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };
+        return (
+            <div>
+                <Slider {...settings}>
+                    <div>
+                        <img className="slideImg slideImg1" src={slideImg1} alt="slideImg1" title="slideImg1" />
+                        <h2 className="slideTxt slideTxt1">어쩌고 저쩌고</h2>
+                    </div>
+                    <div>
+                        <img className="slideImg slideImg2" src={slideImg2} alt="slideImg2" title="slideImg2" />
+                        <h2 className="slideTxt slideTxt2">어쩌고 저쩌고2</h2>
+                    </div>
+                    <div>
+                        <img className="slideImg slideImg3" src={slideImg3} alt="slideImg3" title="slideImg3" />
+                        <h2 className="slideTxt slideTxt3">어쩌고 저쩌고3</h2>
+                    </div>
+                </Slider>
+            </div>
+        );
     }
-    .slick-next:before {
-        opacity: 1;
-        color: black;
-    }
-    `
-
-const Slide = ({ data, handleRen }) => { //부모 컴포넌트에서 받은 state와 method
-
-    //settings 부분, 슬라이더의 기능을 조정할 수 있다.
-    const settings = {
-        dots: false,  // 점은 안 보이게
-        infinite: true, // 무한으로 즐기게
-        speed: 500,
-        slidesToShow: 4, //4장씩 보이게 해주세요
-        slidesToScroll: 1, //1장씩 넘어가세요
-
-        responsive: [ // 반응형 웹 구현 옵션
-            {
-                breakpoint: 1200, // 화면 사이즈 1200px
-                settings: {
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 1023,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
-    };
-    return (
-        <Wrap>
-            <Slider {...settings}> //Slider 태그, 위에서 설정한 슬라이더가 나옴
-                {data.map((data) => {
-                    return <SlideContent data={data} handleRen={handleRen} />;
-                })} //Slider 안에 들어가는 내용(콘텐츠)
-            </Slider>
-        </Wrap>
-    );
-};
-
-export default Slide;
+}

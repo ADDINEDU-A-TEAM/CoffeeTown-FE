@@ -1,1 +1,82 @@
 @import '~bootstrap/scss/bootstrap';
+
+.mainContainer {
+    overflow: hidden;
+
+    .row {
+
+        .col {
+            padding: 0;
+        }
+    }
+
+    .wellcomeArea {
+        height: 300px;
+        background-color: #1e3932;
+        color: #fff;
+        padding: 64px;
+
+        h2 {
+            font-size: 54px;
+        }
+        
+        h2::after {
+            content:'';
+            display: block;
+            width: 940px;
+            height: 1px;
+            margin: 20px 0 25px 5px;
+            background-color: #626262;
+        }
+        
+        p {
+            font-size: 40px;
+        }
+    }
+
+    .listArea {
+        .listBox {
+            width: 400px;
+            height: 500px;
+            border: 1px solid red;
+        }
+    }
+}
+
+@media screen and (max-width:1260px) {
+    .mainContainer {
+        .wellcomeArea {
+
+            h2 {
+                font-size: 40px;
+            }
+
+            h2::after {
+                width: 700px;
+            }
+
+            p {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:900px) {
+    .mainContainer {
+        .wellcomeArea {
+
+            h2 {
+                font-size: 30px;
+            }
+
+            h2::after {
+                width: 520px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
+    }
+}
