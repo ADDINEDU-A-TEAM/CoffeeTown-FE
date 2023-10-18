@@ -3,16 +3,31 @@
         {   
             "id": 1,
             "product_name": "아이스 아메리카노",
-            "product_price": "5000",
+            "product_price": "4500",
             "product_ea": "1",
-            "product_image": "../../src/assets/images/bg_login_img.png"
+            "product_image": "../img/listTestImg.png"
+
         },
         {   
             "id": 2,
-            "product_name": "아이스 카푸치노",
+            "product_name": "아이스 헤이즐넛 라떼",
             "product_price": "5400",
             "product_ea": "1",
-            "product_image": "../../src/assets/images/bg_login_img_2.png"
+            "product_image": "../img/listTestImg2.png"
+        },
+        {   
+            "id": 3,
+            "product_name": "아이스 카푸치노",
+            "product_price": "4900",
+            "product_ea": "1",
+            "product_image": "../img/listTestImg3.png"
+        },
+        {   
+            "id": 4,
+            "product_name": "아이스 글레이즈드 라떼",
+            "product_price": "5700",
+            "product_ea": "1",
+            "product_image": "../img/listTestImg4.png"
         }
     ]
 }

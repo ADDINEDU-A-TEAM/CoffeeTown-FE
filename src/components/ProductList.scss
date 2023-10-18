@@ -1,0 +1,32 @@
+@import '~bootstrap/scss/bootstrap';
+
+.listContainer {
+    width: 100%;
+}
+
+.listArea {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 100px;
+
+    h2 {
+        font-size: 48px;
+        text-align: center;
+        margin: 100px 0;
+    }
+
+    .listWrap {
+        display: flex;
+        justify-content: center;
+
+        .listBox {
+            width: 280px;
+            height: 500px;
+            border: 1px solid red;
+            
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

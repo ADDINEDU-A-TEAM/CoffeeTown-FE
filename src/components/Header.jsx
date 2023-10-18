@@ -19,36 +19,38 @@ const ToggleHeader = styled.div`
 const Header = () => {
     const [isToggled, setIsToggled] = useState(false);
     const [userToggled, setUserToggled] = useState(false);
-        
+
     return (
         <Fragment>
-            <ToggleHeader className="header d-flex justify-content-around" $isToggled={isToggled} $userToggled={userToggled}>
-                {/* 햄버거 버튼(bar) */}
-                <div className={!isToggled ? 'toggle' : 'toggle clicked'} onClick={() => { setIsToggled(!isToggled); }}>
-                    <FontAwesomeIcon icon={!isToggled ? faBars : faTimes} />
-                </div>
+            <div className="headerContainer d-flex justify-content-center">
+                <ToggleHeader className="header d-flex justify-content-between" $isToggled={isToggled} $userToggled={userToggled}>
+                    {/* 햄버거 버튼(bar) */}
+                    <div className={!isToggled ? 'toggle' : 'toggle clicked'} onClick={() => { setIsToggled(!isToggled); }}>
+                        <FontAwesomeIcon icon={!isToggled ? faBars : faTimes} />
+                    </div>
 
-                <div className="logo">
-                    <img src={logoImg} alt="LogoImage" />
-                </div>
+                    <div className="logo">
+                        <img src={logoImg} alt="LogoImage" />
+                    </div>
 
-                {/* 반응형 유저리스트 */}
-                <div className={!userToggled ? 'user' : 'user clicked'} onClick={() => { setUserToggled(!userToggled); }}>
-                    <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
-                </div>
+                    {/* 반응형 유저리스트 */}
+                    <div className={!userToggled ? 'user' : 'user clicked'} onClick={() => { setUserToggled(!userToggled); }}>
+                        <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
+                    </div>
 
-                <ul className="menuList">
-                    <li>COFFEE</li>
-                    <li>DESSERT</li>
-                    <li>DRINK</li>
-                    <li>OTHERS</li>
-                </ul>
-                <ul className="rMenuList">
-                    <li className="greenTxt d-flex">회원가입</li>
-                    <li className="d-flex">로그인</li>
-                    <li className="d-flex">장바구니</li>
-                </ul>
-            </ToggleHeader>
+                    <ul className="menuList">
+                        <li>COFFEE</li>
+                        <li>DESSERT</li>
+                        <li>DRINK</li>
+                        <li>OTHERS</li>
+                    </ul>
+                    <ul className="rMenuList">
+                        <li className="greenTxt d-flex">회원가입</li>
+                        <li className="d-flex">로그인</li>
+                        <li className="d-flex">장바구니</li>
+                    </ul>
+                </ToggleHeader>
+            </div>
         </Fragment>
     )
 }
