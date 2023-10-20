@@ -3,12 +3,12 @@ import React, { Fragment } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import QuantityControl from './QuantityControl';
 
 import './ProductList.scss';
 import basket from '../assets/images/basket.png';
+import HeartBtn from './heartBtn';
 
-const ProductList = ({ data,setData }) => {
+const ProductList = ({ data, setData }) => {
     return (
         <Fragment>
             <div className="listContainer d-flex flex-column align-items-center">
@@ -26,7 +26,7 @@ const ProductList = ({ data,setData }) => {
                                                     <div className="p_name">{d.product_name}</div>
                                                     <div className="p_price">{d.product_price}원</div>
                                                 </div>
-                                                <QuantityControl d={d} />
+                                                <HeartBtn />
                                             </div>
                                             <Button id="addBtn" as="input" type="submit" value="담기" />
                                             <img className="basketImg" src={basket} alt="basketImg"></img>
