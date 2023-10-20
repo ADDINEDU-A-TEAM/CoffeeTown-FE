@@ -11,6 +11,7 @@
 
     h2 {
         font-size: 48px;
+        font-weight: bold;
         text-align: center;
         margin: 100px 0;
     }
@@ -22,10 +23,47 @@
         .listBox {
             width: 280px;
             height: 500px;
-            border: 1px solid red;
             
             img {
                 width: 100%;
+            }
+
+            .pWrap {
+                padding: 8px;
+
+                .p_txt_box {
+                    
+                    .p_name {
+                        font-size: 18px;
+                    }
+        
+                    .p_price {
+                        margin: 10px 0;
+                        font-size: 15px;
+                    }
+        
+                    .p_ea {
+        
+                    }
+                }
+            }
+
+            .btn {
+                width: 100%;
+                height: 50px;
+                border: 1px solid #a4a4a4;
+                font-size: 15px;
+                background-color: transparent;
+                color: #000;
+            }
+
+            .basketImg {
+                position: relative;
+                top: -40px;
+                left: 94px;
+                width: 26px;
+                height: 26px;
+                display: block;
             }
         }
     }

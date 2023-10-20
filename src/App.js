@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 import './styles.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,7 +10,6 @@ import Chart from './pages/Chart';
 
 import { Reset } from 'styled-reset';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
 
 const App = () => {
   const [data, setData] = useState([]);
