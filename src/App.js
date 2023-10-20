@@ -19,7 +19,7 @@ const App = () => {
   }, []);
   const fetchData = async () => {
     await axios
-      .get('http://localhost:3000/data/exData.json')
+      .get('http://localhost:3000/data/mockData.json')
       .then((result) => setData(result.data.item));
   };
   return (
