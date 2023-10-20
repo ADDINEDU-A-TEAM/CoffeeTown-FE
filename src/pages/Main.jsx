@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 // import axios from 'axios';
 import ProductList from '../components/ProductList';
 
-
 import '../pages/Main.scss';
 import '../styles.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,7 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Slider from '../components/Slide';
 
-const Main = () => {
+const Main = ({setData, data}) => {
     return (
         <Fragment>
             <Container className="mainContainer" fluid>
@@ -27,7 +26,7 @@ const Main = () => {
                         <p>커피부터 음료, 다양한 디저트까지</p>
                     </Col>
                 </Row>
-                <ProductList />
+                <ProductList setData={setData} data={data}/>
             </Container>
         </Fragment>
     )
