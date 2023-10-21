@@ -34,7 +34,7 @@ function QuantityControl({ d }) {
     return (
         <StyleQBox className="qBox d-flex">
             <button onClick={() => decre(1)}>-</button>
-            <h3>{d.product_ea}</h3>
+            <h3>0</h3>
             <button onClick={() => incre(1)}>+</button>
         </StyleQBox>
     );

@@ -1,6 +1,9 @@
 .receipt-container {
+  position: fixed;
+  width: 20%;
   border: 1px solid gray;
   padding: 32px 24px;
+
   .receipt-list {
     list-style-type: none;
     padding: 0;
@@ -8,12 +11,17 @@
   }
 
   .receipt-list li {
-    padding-bottom: 10px;
+    padding-bottom: 12px;
   }
 
   .receipt-title {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
+
+  .receipt-title2 {
+    margin: 20px 0;
+  }
+
   .payment-button {
     width: 100%;
     padding: 16px;
@@ -27,5 +35,13 @@
 
   .space-between {
     justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .receipt-container {
+    margin: 50px 0;
+    position: static;
+    width: 100%;
   }
 }

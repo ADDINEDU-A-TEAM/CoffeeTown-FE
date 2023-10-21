@@ -16,13 +16,19 @@
   align-items: center;
 }
 
+#wrap {
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
 .greenTxt {
   color: #007042;
 }
 
 // ********** Header CSS 영역 시작 ***********
 .headerContainer {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 120px;
@@ -142,6 +148,10 @@
 
       li::after {
         display: none;
+      }
+
+      .link {
+        color: #fff;
       }
     }
 

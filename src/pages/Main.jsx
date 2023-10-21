@@ -14,7 +14,7 @@ import Slider from '../components/Slide';
 const Main = ({setData, data}) => {
     return (
         <Fragment>
-            <Container className="mainContainer" fluid>
+            <Container className="mainContainer d-flex" fluid>
                 <Row className="imgSlideArea">
                     <Col>
                         <Slider />
