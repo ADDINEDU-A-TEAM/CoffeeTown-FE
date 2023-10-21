@@ -4,7 +4,7 @@ import { useState } from 'react';
 import logoImg from '../assets/images/logo_gnb_img.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUser, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ToggleHeader = styled.div`
   @media screen and (max-width: 968px) {
@@ -17,9 +17,21 @@ const ToggleHeader = styled.div`
   }
 `;
 
-const Header = () => {
+const Header = ({ user, setUser }) => {
   const [isToggled, setIsToggled] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
+
+  const navigate = useNavigate();
+
+  const getToken = window.sessionStorage.getItem('token');
+
+  const handleLogOut = () => {
+    sessionStorage.removeItem('token');
+    setUser(null);
+    navigate('/');
+  };
+
+  console.log('user', user);
 
   return (
     <Fragment>
@@ -59,13 +71,32 @@ const Header = () => {
             <li>DRINK</li>
             <li>OTHERS</li>
           </ul>
-          <ul className='rMenuList'>
-            <li className='greenTxt d-flex'>회원가입</li>
-            <li className='d-flex'>로그인</li>
-            <Link to='/chart'>
-              <li className='d-flex '>장바구니</li>
-            </Link>
-          </ul>
+          {getToken ? (
+            <div className='LMenuList'>
+              <div className='mainUser'>{user}님 방갑습니다</div>
+              <ul>
+                <li className='d-flex' onClick={handleLogOut}>
+                  로그아웃
+                </li>
+                <Link to='/Cart'>
+                  <li className='d-flex '>장바구니</li>
+                </Link>
+              </ul>
+            </div>
+          ) : (
+            <ul className='rMenuList'>
+              <Link to='/Signup'>
+                {' '}
+                <li className='greenTxt d-flex'>회원가입</li>
+              </Link>
+              <Link to='/'>
+                <li className='d-flex'>로그인</li>
+              </Link>
+              <Link to='/Cart'>
+                <li className='d-flex '>장바구니</li>
+              </Link>
+            </ul>
+          )}
         </ToggleHeader>
       </div>
     </Fragment>

@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 // import { cartActions } from '../action/cartAction';
 // import CartProductCard from '../component/CartProductCard';
 import OrderReceipt from '../components/OrderReceipt';
-import '../pages/Chart.scss';
+import '../pages/Cart.scss';
 
 const Cart = () => {
   // const dispatch = useDispatch();
