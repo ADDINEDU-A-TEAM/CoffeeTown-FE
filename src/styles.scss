@@ -15,6 +15,13 @@
   flex-direction: column;
   align-items: center;
 }
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+a:hover {
+  text-decoration: none !important;
+}
 
 #wrap {
   flex-direction: column;
@@ -24,6 +31,12 @@
 
 .greenTxt {
   color: #007042;
+}
+
+.errorMessage {
+  color: red;
+  font-size: small;
+  margin-bottom: 20px;
 }
 
 // ********** Header CSS 영역 시작 ***********
@@ -88,6 +101,37 @@
     .link {
       text-decoration: none;
       color: #000;
+    }
+  }
+
+  .LMenuList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+
+    ul {
+      display: flex;
+    }
+
+    li {
+      cursor: pointer;
+    }
+
+    li::after {
+      content: '';
+      display: block;
+      height: 14px;
+      width: 1px;
+      background-color: #a4a4a4;
+      margin: 0 8px;
+    }
+
+    li:last-child::after {
+      width: 0;
+    }
+    .mainUser {
+      color: #007042;
     }
   }
 

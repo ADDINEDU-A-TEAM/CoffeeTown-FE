@@ -1,103 +1,105 @@
 @import '~bootstrap/scss/bootstrap';
 
 .signupWrap {
-    background-image: url(../assets/images/bg_signup_img.png);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100%;
-    padding-bottom: 100px;
+  background-image: url(../assets/images/bg_signup_img.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  padding-bottom: 100px;
 
-    .signupTxt {
-        font-size: 44px;
-        color: #fff;
+  .signupTxt {
+    font-size: 44px;
+    color: #fff;
+  }
+
+  .signupBox {
+    width: 468px;
+    height: 1140px;
+    padding: 45px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(51, 51, 51, 0.5);
+    border-radius: 5px;
+
+    .wellcomeTxt {
+      width: 100%;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #323232;
+      span {
+        color: #029357;
+      }
     }
 
-    .signupBox {
-        width: 468px;
-        height: 1140px;
-        padding: 45px 0;
-        background-color: rgba(255,255,255,0.8);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 10px 25px rgba(51, 51, 51,0.5);
-        border-radius: 5px;
-
-        .wellcomeTxt {
-            width: 100%;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            color: #323232;
-            span {
-                color: #029357;
-            }
-        }
-
-        .wellcomeTxt::after {
-            content:'';
-            display: block;
-            margin: 45px 0;
-            width: 100%;
-            height: 1px;
-            background-color: #b4b4b4;
-        }
-
-        .formGroup {
-            width: 80%;
-
-            input {
-                border-radius: 4px; 
-                font-size: 15px;
-                padding: 12px;
-            }
-            
-            input:focus {
-                border-color: #007042;
-                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px rgba(158, 161, 158, 0.3);
-            }
-
-            textarea {
-                height: 150px;
-                border-radius: 4px; 
-                font-size: 15px;
-                resize: none;
-            }
-
-            textarea::placeholder {
-                font-size: 13px;
-                text-align: left;
-            }
-
-            textarea:focus {
-                border-color: #007042;
-                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px rgba(158, 161, 158, 0.3);
-            }
-
-            .message {
-                color: rgb(255, 0, 0);
-                margin: 4px 4px 0;
-                font-size: 14px;
-            }
-        }
-
-        .subTxt {
-            margin-top: 20px;
-            font-size: 12px;
-            padding-left: 8px;
-        }
-
-        .btn {
-            width: 80%;
-            height: 54px;
-            margin-top: 44px;
-            border-radius: 4px;
-            font-size: 15px;
-            border-color: #007042;
-        }
-
-        #signupBtn {
-            background-color: #007042;
-        }
+    .wellcomeTxt::after {
+      content: '';
+      display: block;
+      margin: 45px 0;
+      width: 100%;
+      height: 1px;
+      background-color: #b4b4b4;
     }
+
+    .formGroup {
+      width: 80%;
+
+      input {
+        border-radius: 4px;
+        font-size: 15px;
+        padding: 12px;
+      }
+
+      input:focus {
+        border-color: #007042;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07),
+          0 0 8px rgba(158, 161, 158, 0.3);
+      }
+
+      textarea {
+        height: 150px;
+        border-radius: 4px;
+        font-size: 15px;
+        resize: none;
+      }
+
+      textarea::placeholder {
+        font-size: 13px;
+        text-align: left;
+      }
+
+      textarea:focus {
+        border-color: #007042;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07),
+          0 0 8px rgba(158, 161, 158, 0.3);
+      }
+
+      .message {
+        color: rgb(255, 0, 0);
+        margin: 4px 4px 0;
+        font-size: 14px;
+      }
+    }
+
+    .subTxt {
+      margin-top: 20px;
+      font-size: 12px;
+      padding-left: 8px;
+    }
+
+    .btn {
+      width: 80%;
+      height: 54px;
+      margin-top: 44px;
+      border-radius: 4px;
+      font-size: 15px;
+      border-color: #007042;
+    }
+
+    #signupBtn {
+      background-color: #007042;
+    }
+  }
 }

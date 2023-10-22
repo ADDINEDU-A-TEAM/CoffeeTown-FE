@@ -12,36 +12,44 @@ import { Reset } from 'styled-reset';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => {
+  const [data, setData] = useState([]);
+  const [user, setUser] = useState([]);
 
-    const [data, setData] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    useEffect(() => {
-    
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        await axios
-            .get('http://localhost:5000/main/list')
-            .then((result) => setData(result.data));
-    };
-    return (
-        <Fragment>
-            <BrowserRouter>
-                <div id="wrap" className="d-flex">
-                    <Reset />
-                    <Header />
-                    <Routes>
-                        <Route path={"/"} element={<Login />}></Route>
-                        <Route path={"/Signup"} element={<Signup />}></Route>
-                        <Route path={"/Main"} element={<Main setData={setData} data={data} />}></Route>
-                        <Route path={"/Cart"} element={<Cart setData={setData} data={data} />}></Route>
-                    </Routes>
-                    <Footer />
-                </div>    
-            </BrowserRouter>
-        </Fragment>
-    );
-}
+  const fetchData = async () => {
+    await axios
+      .get('http://localhost:3000/data/exData.json')
+      .then((result) => setData(result.data));
+  };
+  return (
+    <Fragment>
+      <BrowserRouter>
+        <div id='wrap' className='d-flex'>
+          <Reset />
+          <Header user={user} setUser={setUser} />
+          <Routes>
+            <Route
+              path={'/'}
+              element={<Login user={user} setUser={setUser} />}
+            ></Route>
+            <Route path={'/Signup'} element={<Signup />}></Route>
+            <Route
+              path={'/Main'}
+              element={<Main setData={setData} data={data} />}
+            ></Route>
+            <Route
+              path={'/Cart'}
+              element={<Cart setData={setData} data={data} />}
+            ></Route>
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </Fragment>
+  );
+};
 
 export default App;
