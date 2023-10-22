@@ -1,8 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
 .mainContainer {
-    overflow: hidden;
-
+    margin-top: 120px;
+    flex-direction: column;
+    flex: 1;
     .row {
 
         .col {

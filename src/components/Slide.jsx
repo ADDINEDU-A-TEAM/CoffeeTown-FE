@@ -27,7 +27,10 @@ export default class SimpleSlider extends Component {
               alt='slideImg1'
               title='slideImg1'
             />
-            <h2 className='slideTxt slideTxt1'>어쩌고 저쩌고</h2>
+            <h2 className='slideTxt slideTxt1'>
+              다양하게 준비된 <br />
+              특별한 원두와 로스팅
+            </h2>
           </div>
           <div>
             <img
@@ -36,7 +39,9 @@ export default class SimpleSlider extends Component {
               alt='slideImg2'
               title='slideImg2'
             />
-            <h2 className='slideTxt slideTxt2'>어쩌고 저쩌고2</h2>
+            <h2 className='slideTxt slideTxt2'>
+              따뜻하고 좋은 날 <br /> 커피타운과 함께
+            </h2>
           </div>
           <div>
             <img
@@ -45,7 +50,10 @@ export default class SimpleSlider extends Component {
               alt='slideImg3'
               title='slideImg3'
             />
-            <h2 className='slideTxt slideTxt3'>어쩌고 저쩌고3</h2>
+            <h2 className='slideTxt slideTxt3'>
+              커피의 맛과 향은 <br />
+              원두로 정해집니다.
+            </h2>
           </div>
         </Slider>
       </div>

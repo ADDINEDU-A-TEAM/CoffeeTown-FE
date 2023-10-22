@@ -1,26 +1,25 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router';
-import { useLocation } from 'react-router-dom';
+// import { useNavigate } from 'react-router';
+// import { useLocation } from 'react-router-dom';
 import '../components/OrderReceipt.scss';
 
 const OrderReceipt = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  // const location = useLocation();
+  // const navigate = useNavigate();
 
   return (
     <div className='receipt-container'>
       <h3 className='receipt-title'>주문 내역</h3>
       <ul className='receipt-list'>
         <li>
-          <div className='display-flex space-between'>
+          <div className='item display-flex space-between'>
             <div>아이템이름</div>
-
-            <div>₩ 45,000</div>
+            <div>₩ 4,000</div>
           </div>
         </li>
       </ul>
-      <div className='display-flex space-between receipt-title'>
+      <div className='display-flex space-between receipt-title2'>
         <div>
           <strong>Total:</strong>
         </div>
@@ -39,13 +38,9 @@ const OrderReceipt = () => {
         결제하기
       </Button>
 
-      <div>
-        가능한 결제 수단 귀하가 결제 단계에 도달할 때까지 가격 및 배송료는
-        확인되지 않습니다.
-        <div>
-          30일의 반품 가능 기간, 반품 수수료 및 미수취시 발생하는 추가 배송 요금
-          읽어보기 반품 및 환불
-        </div>
+      <div style={{ fontSize: "15px", lineHeight: "18px" }}>
+        결제 진행 후 주문완료된 상품은 결제를 취소할 수 없습니다. 
+        결제 관련 오류나 문의사항은 오류가 발생한 해당 카드사로 연락바랍니다.
       </div>
     </div>
   );

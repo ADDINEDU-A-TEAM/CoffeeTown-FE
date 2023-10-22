@@ -27,21 +27,26 @@ const App = () => {
   return (
     <Fragment>
       <BrowserRouter>
-        <Reset />
-        <Header user={user} setUser={setUser} />
-        <Routes>
-          <Route
-            path={'/'}
-            element={<Login user={user} setUser={setUser} />}
-          ></Route>
-          <Route path={'/Signup'} element={<Signup />}></Route>
-          <Route
-            path={'/Main'}
-            element={<Main data={data} setData={setData} />}
-          ></Route>
-          <Route path={'/Cart'} element={<Cart />}></Route>
-        </Routes>
-        <Footer />
+        <div id='wrap' className='d-flex'>
+          <Reset />
+          <Header user={user} setUser={setUser} />
+          <Routes>
+            <Route
+              path={'/'}
+              element={<Login user={user} setUser={setUser} />}
+            ></Route>
+            <Route path={'/Signup'} element={<Signup />}></Route>
+            <Route
+              path={'/Main'}
+              element={<Main setData={setData} data={data} />}
+            ></Route>
+            <Route
+              path={'/Cart'}
+              element={<Cart setData={setData} data={data} />}
+            ></Route>
+          </Routes>
+          <Footer />
+        </div>
       </BrowserRouter>
     </Fragment>
   );

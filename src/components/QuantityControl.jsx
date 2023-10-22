@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 
 const StyleQBox = styled.div`
-    width: 70px;
+    width: 74px;
     height: 30px;
     margin-top: 8px;
     border: 1px solid #dadada;
@@ -34,7 +34,7 @@ function QuantityControl({ d }) {
     return (
         <StyleQBox className="qBox d-flex">
             <button onClick={() => decre(1)}>-</button>
-            <h3>{d.product_ea[number]}</h3>
+            <h3>0</h3>
             <button onClick={() => incre(1)}>+</button>
         </StyleQBox>
     );
