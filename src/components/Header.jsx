@@ -17,7 +17,7 @@ const ToggleHeader = styled.div`
   }
 `;
 
-const Header = ({ user, setUser }) => {
+const Header = ({ user, setUser, cartItems }) => {
   const [isToggled, setIsToggled] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
 
@@ -32,6 +32,11 @@ const Header = ({ user, setUser }) => {
   };
 
   console.log('user', user);
+
+  const totalCartItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   return (
     <Fragment>
@@ -51,7 +56,7 @@ const Header = ({ user, setUser }) => {
             <FontAwesomeIcon icon={!isToggled ? faBars : faTimes} />
           </div>
 
-          <Link to='/main'>
+          <Link to='/Main'>
             <div className='logo'>
               <img src={logoImg} alt='LogoImage' />
             </div>
@@ -95,7 +100,9 @@ const Header = ({ user, setUser }) => {
                 <li className='d-flex'>로그인</li>
               </Link>
               <Link to='/Cart'>
-                <li className='d-flex '>장바구니</li>
+                <li className='d-flex '>
+                  장바구니 <p className='cartNum'>{totalCartItems}</p>{' '}
+                </li>
               </Link>
             </ul>
           )}

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-// import axios from 'axios';
 import ProductList from '../components/ProductList';
 
 import '../pages/Main.scss';
@@ -11,7 +10,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Slider from '../components/Slide';
 
-const Main = ({ setData, data }) => {
+const Main = ({ setData, data, addToCart }) => {
+
   return (
     <Fragment>
       <Container className='mainContainer d-flex' fluid>
@@ -28,7 +28,7 @@ const Main = ({ setData, data }) => {
             <p>커피부터 음료, 다양한 디저트까지</p>
           </Col>
         </Row>
-        <ProductList setData={setData} data={data} />
+        <ProductList setData={setData} data={data} addToCart={addToCart}/>
       </Container>
     </Fragment>
   );

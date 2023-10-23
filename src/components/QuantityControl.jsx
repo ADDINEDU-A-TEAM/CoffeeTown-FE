@@ -20,22 +20,21 @@ const StyleQBox = styled.div`
     }
 `;
 
-function QuantityControl({ d }) {
-    const [number, setNumber] = useState(0);
+function QuantityControl({ quantity, onDecrease, onIncrease }) {
 
-    const incre = (index) => {
-        setNumber(number + index);
+    const decreaseQuantity = () => {
+        onDecrease();
     }
 
-    const decre = (index) => {
-        setNumber(number - index);
+    const increaseQuantity = () => {
+        onIncrease();
     }
 
     return (
         <StyleQBox className="qBox d-flex">
-            <button onClick={() => decre(1)}>-</button>
-            <h3>0</h3>
-            <button onClick={() => incre(1)}>+</button>
+            <button onClick={decreaseQuantity}>-</button>
+            <h3>{quantity}</h3>
+            <button onClick={increaseQuantity}>+</button>
         </StyleQBox>
     );
 }

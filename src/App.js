@@ -18,6 +18,28 @@ const App = () => {
 
   console.log('appuser', location.state);
 
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (product) => {
+    const existingProductIndex = cartItems.findIndex(
+      (item) => item.product_id === product.product_id
+    );
+
+    if (existingProductIndex !== -1) {
+      // 이미 장바구니에 있는 상품의 수량 증가
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingProductIndex] = {
+        ...updatedCartItems[existingProductIndex],
+        quantity: updatedCartItems[existingProductIndex].quantity + 1,
+      };
+      setCartItems(updatedCartItems);
+    } else {
+      // 장바구니에 없는 상품인 경우 수량 1로 추가
+      product.quantity = 1;
+      setCartItems([...cartItems, product]);
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -32,7 +54,7 @@ const App = () => {
     <Fragment>
       <div id='wrap' className='d-flex'>
         <Reset />
-        <Header user={user} setUser={setUser} />
+        <Header user={user} setUser={setUser} cartItems={cartItems} />
         <Routes>
           <Route
             path={'/'}
@@ -41,11 +63,20 @@ const App = () => {
           <Route path={'/Signup'} element={<Signup />}></Route>
           <Route
             path={'/Main'}
-            element={<Main setData={setData} data={data} />}
+            element={
+              <Main setData={setData} data={data} addToCart={addToCart} />
+            }
           ></Route>
           <Route
             path={'/Cart'}
-            element={<Cart setData={setData} data={data} />}
+            element={
+              <Cart
+                setData={setData}
+                data={data}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+              />
+            }
           ></Route>
         </Routes>
         <Footer />

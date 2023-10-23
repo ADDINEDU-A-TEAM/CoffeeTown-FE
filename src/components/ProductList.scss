@@ -23,7 +23,7 @@
         .listBox {
             width: 280px;
             height: 500px;
-            
+
             img {
                 width: 100%;
             }
@@ -32,19 +32,17 @@
                 padding: 8px;
 
                 .p_txt_box {
-                    
+
                     .p_name {
                         font-size: 18px;
                     }
-        
+
                     .p_price {
                         margin: 10px 0;
                         font-size: 15px;
                     }
-        
-                    .p_ea {
-        
-                    }
+
+                    .p_ea {}
                 }
 
                 .heartBtn {
@@ -63,6 +61,11 @@
                 font-size: 15px;
                 background-color: transparent;
                 color: #000;
+            }
+
+            .btn:active {
+                box-shadow: inset -.3rem -.1rem 1.4rem #FBFBFB, inset .3rem .3rem .8rem #BEC5D0;
+                cursor: pointer;
             }
 
             .basketImg {
