@@ -17,7 +17,7 @@ const ToggleHeader = styled.div`
   }
 `;
 
-const Header = ({ user, setUser, cartItems }) => {
+const Header = ({ user, setUser, cartItems, setCartItems }) => {
   const [isToggled, setIsToggled] = useState(false);
   const [userToggled, setUserToggled] = useState(false);
 
@@ -28,10 +28,9 @@ const Header = ({ user, setUser, cartItems }) => {
   const handleLogOut = () => {
     sessionStorage.removeItem('token');
     setUser(null);
+    setCartItems([]);
     navigate('/');
   };
-
-  console.log('user', user);
 
   const totalCartItems = cartItems.reduce(
     (total, item) => total + item.quantity,
@@ -86,7 +85,9 @@ const Header = ({ user, setUser, cartItems }) => {
                   로그아웃
                 </li>
                 <Link to='/Cart'>
-                  <li className='d-flex '>장바구니</li>
+                  <li className='d-flex '>
+                    장바구니 <p className='cartNum'>{totalCartItems}</p>{' '}
+                  </li>
                 </Link>
               </ul>
             </div>

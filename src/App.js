@@ -16,8 +16,6 @@ const App = () => {
   const [data, setData] = useState([]);
   const [user, setUser] = useState(location.state ? location.state?.user : '');
 
-  console.log('appuser', location.state);
-
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product) => {
@@ -54,7 +52,12 @@ const App = () => {
     <Fragment>
       <div id='wrap' className='d-flex'>
         <Reset />
-        <Header user={user} setUser={setUser} cartItems={cartItems} />
+        <Header
+          user={user}
+          setUser={setUser}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+        />
         <Routes>
           <Route
             path={'/'}
