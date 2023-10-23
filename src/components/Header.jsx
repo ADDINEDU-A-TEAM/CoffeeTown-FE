@@ -51,9 +51,11 @@ const Header = ({ user, setUser }) => {
             <FontAwesomeIcon icon={!isToggled ? faBars : faTimes} />
           </div>
 
-          <div className='logo'>
-            <img src={logoImg} alt='LogoImage' />
-          </div>
+          <Link to='/main'>
+            <div className='logo'>
+              <img src={logoImg} alt='LogoImage' />
+            </div>
+          </Link>
 
           {/* 반응형 유저리스트 */}
           <div
@@ -73,7 +75,7 @@ const Header = ({ user, setUser }) => {
           </ul>
           {getToken ? (
             <div className='LMenuList'>
-              <div className='mainUser'>{user}님 방갑습니다</div>
+              <div className='mainUser'>{user.nickname}님 방갑습니다</div>
               <ul>
                 <li className='d-flex' onClick={handleLogOut}>
                   로그아웃
