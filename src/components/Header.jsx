@@ -33,7 +33,10 @@ const Header = ({ user, setUser, cartItems }) => {
 
   console.log('user', user);
 
-  const totalCartItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalCartItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   return (
     <Fragment>
@@ -77,7 +80,7 @@ const Header = ({ user, setUser, cartItems }) => {
           </ul>
           {getToken ? (
             <div className='LMenuList'>
-              <div className='mainUser'>{user}님 방갑습니다</div>
+              <div className='mainUser'>{user.nickname}님 방갑습니다</div>
               <ul>
                 <li className='d-flex' onClick={handleLogOut}>
                   로그아웃
@@ -97,7 +100,9 @@ const Header = ({ user, setUser, cartItems }) => {
                 <li className='d-flex'>로그인</li>
               </Link>
               <Link to='/Cart'>
-                <li className='d-flex '>장바구니 <p className="cartNum">{totalCartItems}</p> </li>
+                <li className='d-flex '>
+                  장바구니 <p className='cartNum'>{totalCartItems}</p>{' '}
+                </li>
               </Link>
             </ul>
           )}

@@ -11,10 +11,10 @@ import Form from 'react-bootstrap/Form';
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = ({ setUser, user }) => {
+const Login = ({ user, setUser }) => {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
-  const [error, setError] = useState([]);
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
@@ -33,23 +33,24 @@ const Login = ({ setUser, user }) => {
         }
       );
       if (response.status == 200) {
-        setUser(response.data.nickname);
+        setUser(response.data);
         sessionStorage.setItem('token', response.data.token); //세션스토리지에 토큰저장
         response.defaults.headers['authorization'] =
           'Bearer ' + response.data.token;
       }
 
-      throw new Error(error.response.data.message);
-      //   error.response.data.error
+      throw new Error(response.message);
     } catch (error) {
-      // setError(error.response.data.message);
-
-      console.log(error);
+      //   setError(error.response.data.message);
+      //   console.log(error.response.data.message);
+      //   console.log(error);
     }
   };
   const getToken = window.sessionStorage.getItem('token');
   if (getToken) {
-    return <Navigate to='/main' />;
+    return navigate('/main', {
+      state: { user },
+    });
   }
 
   return (
@@ -104,4 +105,4 @@ const Login = ({ setUser, user }) => {
   );
 };
 
-export default Login;
+export default React.memo(Login);
