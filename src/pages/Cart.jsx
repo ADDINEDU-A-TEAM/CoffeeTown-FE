@@ -6,6 +6,8 @@ import QuantityControl from '../components/QuantityControl';
 
 const Cart = ({ cartItems, setCartItems }) => {
 
+  console.log('cartItems', cartItems);
+
   // 각 아이템 정보를 기반으로 아이템 리스트와 총 가격을 계산
   const itemInfo = cartItems.map((item) => ({
     name: item.product_name,

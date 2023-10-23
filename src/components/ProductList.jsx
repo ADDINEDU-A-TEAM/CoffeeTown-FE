@@ -7,7 +7,7 @@ import './ProductList.scss';
 import basket from '../assets/images/basket.png';
 import HeartBtn from './heartBtn';
 
-const ProductList = ({ data, setData, addToCart  }) => {
+const ProductList = ({ data, setData, addToCart, cartItems }) => {
 
   return (
     <Fragment>
