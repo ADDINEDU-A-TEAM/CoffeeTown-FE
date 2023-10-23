@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-// import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -8,7 +7,8 @@ import './ProductList.scss';
 import basket from '../assets/images/basket.png';
 import HeartBtn from './heartBtn';
 
-const ProductList = ({ data, setData }) => {
+const ProductList = ({ data, setData, addToCart  }) => {
+
   return (
     <Fragment>
       <div className='listContainer d-flex flex-column align-items-center'>
@@ -33,6 +33,7 @@ const ProductList = ({ data, setData }) => {
                         as='input'
                         type='submit'
                         value='담기'
+                        onClick={() => addToCart(d)}
                       />
                       <img
                         className='basketImg'

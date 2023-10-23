@@ -1,28 +1,59 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { cartActions } from '../action/cartAction';
-// import CartProductCard from '../component/CartProductCard';
 import OrderReceipt from '../components/OrderReceipt';
 import '../pages/Cart.scss';
 import QuantityControl from '../components/QuantityControl';
 
-import exImg from '../assets/images/listCoffeeImg1.png';
-// import exImg2 from '../assets//images/listCoffeeImg2.png'
+const Cart = ({ cartItems, setCartItems }) => {
 
-const Cart = () => {
-  // const dispatch = useDispatch();
+  // 각 아이템 정보를 기반으로 아이템 리스트와 총 가격을 계산
+  const itemInfo = cartItems.map((item) => ({
+    name: item.product_name,
+    price: item.quantity * item.product_price,
+  }));
 
-  useEffect(() => {
-    //카트리스트 불러오기
-  }, []);
+  // 모든 아이템의 가격 합계를 계산
+  const total = itemInfo.reduce((acc, item) => acc + item.price, 0);
+
+  // 더하기 버튼 클릭 시 수량 증가
+  const handleDecrease = (item) => {
+    const updatedItems = cartItems.map((cartItem) => {
+      if (cartItem.product_id === item.product_id) {
+        return { ...cartItem, quantity: cartItem.quantity - 1 };
+      }
+      return cartItem;
+    });
+    setCartItems(updatedItems);
+  };
+
+  // 빼기 버튼 클릭 시 수량 감소
+  const handleIncrease = (item) => {
+    const updatedItems = cartItems.map((cartItem) => {
+      if (cartItem.product_id === item.product_id) {
+        return { ...cartItem, quantity: cartItem.quantity + 1 };
+      }
+      return cartItem;
+    });
+    setCartItems(updatedItems);
+  };
+
+  // itemDeleteBtn 클릭 시 아이템 삭제
+  const handleDelete = (productId) => {
+    // productId를 기반으로 상품을 찾아서 제거
+    const updatedCartItems = cartItems.filter((item) => item.product_id !== productId);
+    setCartItems(updatedCartItems);
+  };
+
+  // itemAlldeleteBtn 클릭 시 모든 아이템 삭제
+  const handleAllDelete = () => {
+    setCartItems([]);
+  };
 
   return (
-    <Container className='CartAll'>
+    <Container fluid className='CartAll'>
       <h2 className='cartTxt d-flex justify-content-center'>장바구니</h2>
       <Row>
-        <Col
+        <Col className="colWrap"
           xs={12}
           md={8}
           style={{
@@ -30,34 +61,43 @@ const Cart = () => {
             borderBottom: '1px solid #a4a4a4',
           }}
         >
-          <div
-            className='text-align-center empty-bag'
-            style={{ display: 'none' }}
-          >
-            <h2>카트가 비어있습니다.</h2>
-            <div>상품을 담아주세요!</div>
-          </div>
-          <ul className='cart-bag'>
-            <li className='cartListBox d-flex'>
-              <img src={exImg} alt='coffeeListImg1'></img>
-              <div className='cWrap d-flex'>
-                <div className='c_txt_box d-flex align-items-center'>
-                  <Col className='c_name' md={8}>
-                    아이스 아메리카노
-                  </Col>
-                  <Col className='quan_box' md={2}>
-                    <QuantityControl />
-                  </Col>
-                  <Col className='c_price' md={2}>
-                    4000원
-                  </Col>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <p className="itemAllDeleteBtn d-flex" onClick={handleAllDelete}>전체삭제</p>
+          {cartItems.length === 0 ? (
+            <div className='text-align-center empty-bag'>
+              <h2>카트가 비어있습니다.</h2>
+              <div>상품을 담아주세요!</div>
+            </div>
+          ) : (
+            <ul className='cart-bag'>
+              {cartItems.map((item) => (
+                <li key={item.product_id} className='cartListBox d-flex'>
+                  <img src={item.product_image} alt='coffeeListImg1'></img>
+                  <div className='cWrap d-flex'>
+                    <div className='c_txt_box d-flex align-items-center'>
+                      <Col className='c_name' md={8}>
+                        {item.product_name} ({item.quantity}개)
+                      </Col>
+                      <Col className='quan_box' md={2}>
+                        <QuantityControl
+                          quantity={item.quantity}
+                          onDecrease={() => handleDecrease(item)}
+                          onIncrease={() => handleIncrease(item)}
+                          price={item.product_price}
+                        />
+                      </Col>
+                      <Col className='c_price' md={2}>
+                        {item.quantity * item.product_price}원
+                      </Col>
+                    </div>
+                  </div>
+                  <p className="itemDeleteBtn" onClick={() => handleDelete(item.product_id)}>x</p>
+                </li>
+              ))}
+            </ul>
+          )}
         </Col>
         <Col xs={12} md={4}>
-          <OrderReceipt />
+          <OrderReceipt itemInfo={itemInfo} total={total} />
         </Col>
       </Row>
     </Container>
