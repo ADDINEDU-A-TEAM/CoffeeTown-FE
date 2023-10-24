@@ -122,7 +122,6 @@ const App = ({ field }) => {
               />
             }
           ></Route>
-          <Route path={'/ask'} element={<Ask />}></Route>
         </Routes>
         <Footer />
       </div>
