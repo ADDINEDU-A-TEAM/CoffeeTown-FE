@@ -7,16 +7,53 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Main from './pages/Main';
 import Cart from './pages/Cart';
-import { Reset } from 'styled-reset';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import Ask from './pages/Ask';
 
-const App = () => {
+import { Reset } from 'styled-reset';
+import {
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
+
+const App = ({ field }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [data, setData] = useState([]);
   const [user, setUser] = useState(location.state ? location.state?.user : '');
+  const [query, setQuery] = useSearchParams();
+  const [search, setSearch] = useState(query.get(field) || '');
+  const [searchQuery, setSearchQuery] = useState({
+    item: query.get('item') || '',
+  });
 
   const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    //검색어나 패이지가 바뀌면 url 바꿔주기
+    if (searchQuery.item == '') {
+      delete searchQuery.item;
+    }
+
+    const params = new URLSearchParams(searchQuery);
+    const query = params.toString();
+
+    navigate(`?${query}`);
+  }, [searchQuery]);
+
+  //get Data
+  useEffect(() => {
+    fetchData();
+  }, [query]);
+
+  const onCheckEnter = (e) => {
+    if (e.key === 'Enter') {
+      setSearchQuery({ ...searchQuery, [field]: search });
+    }
+  };
 
   const addToCart = (product) => {
     const existingProductIndex = cartItems.findIndex(
@@ -38,13 +75,11 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const fetchData = async () => {
     await axios
-      .get('http://localhost:3000/data/exData.json')
+      .get('http://localhost:8000/main/list', {
+        params: { ...searchQuery },
+      })
       .then((result) => setData(result.data));
   };
 
@@ -67,7 +102,13 @@ const App = () => {
           <Route
             path={'/Main'}
             element={
-              <Main setData={setData} data={data} addToCart={addToCart} />
+              <Main
+                setData={setData}
+                data={data}
+                addToCart={addToCart}
+                onCheckEnter={onCheckEnter}
+                setSearch={setSearch}
+              />
             }
           ></Route>
           <Route
@@ -81,6 +122,7 @@ const App = () => {
               />
             }
           ></Route>
+          <Route path={'/ask'} element={<Ask />}></Route>
         </Routes>
         <Footer />
       </div>
