@@ -1,81 +1,92 @@
 @import '~bootstrap/scss/bootstrap';
 
 .listContainer {
-    width: 100%;
+  width: 100%;
+}
+
+.noSearch {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  flex-direction: column;
+  font-size: 30px;
+  margin-bottom: 400px;
 }
 
 .listArea {
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 100px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 100px;
 
-    h2 {
-        font-size: 48px;
-        font-weight: bold;
-        text-align: center;
-        margin: 100px 0;
-    }
+  h2 {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin: 100px 0;
+  }
 
-    .listWrap {
-        display: flex;
-        justify-content: center;
+  .listWrap {
+    display: flex;
+    justify-content: center;
 
-        .listBox {
-            width: 280px;
-            height: 500px;
+    .listBox {
+      width: 280px;
+      height: 500px;
 
-            img {
-                width: 100%;
-            }
+      img {
+        width: 100%;
+      }
 
-            .pWrap {
-                padding: 8px;
+      .pWrap {
+        padding: 8px;
 
-                .p_txt_box {
+        .p_txt_box {
+          .p_name {
+            font-size: 18px;
+          }
 
-                    .p_name {
-                        font-size: 18px;
-                    }
+          .p_price {
+            margin: 10px 0;
+            font-size: 15px;
+          }
 
-                    .p_price {
-                        margin: 10px 0;
-                        font-size: 15px;
-                    }
-
-                    .p_ea {}
-                }
-
-                .heartBtn {
-                    display: block;
-                    cursor: pointer;
-                    width: 30px;
-                    height: 30px;
-                    margin-top: 4px;
-                }
-            }
-
-            .btn {
-                width: 100%;
-                height: 50px;
-                border: 1px solid #a4a4a4;
-                font-size: 15px;
-                background-color: transparent;
-                color: #000;
-            }
-
-            .btn:active {
-                box-shadow: inset -.3rem -.1rem 1.4rem #FBFBFB, inset .3rem .3rem .8rem #BEC5D0;
-                cursor: pointer;
-            }
-
-            .basketImg {
-                position: relative;
-                top: -40px;
-                left: 94px;
-                width: 26px;
-                height: 26px;
-                display: block;
-            }
+          .p_ea {
+          }
         }
+
+        .heartBtn {
+          display: block;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          margin-top: 4px;
+        }
+      }
+
+      .btn {
+        width: 100%;
+        height: 50px;
+        border: 1px solid #a4a4a4;
+        font-size: 15px;
+        background-color: transparent;
+        color: #000;
+      }
+
+      .btn:active {
+        box-shadow: inset -0.3rem -0.1rem 1.4rem #fbfbfb,
+          inset 0.3rem 0.3rem 0.8rem #bec5d0;
+        cursor: pointer;
+      }
+
+      .basketImg {
+        position: relative;
+        top: -40px;
+        left: 94px;
+        width: 26px;
+        height: 26px;
+        display: block;
+      }
     }
+  }
 }

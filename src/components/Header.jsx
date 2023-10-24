@@ -84,6 +84,7 @@ const Header = ({ user, setUser, cartItems, setCartItems }) => {
                 <li className='d-flex' onClick={handleLogOut}>
                   로그아웃
                 </li>
+
                 <Link to='/Cart'>
                   <li className='d-flex '>
                     장바구니 <p className='cartNum'>{totalCartItems}</p>{' '}
