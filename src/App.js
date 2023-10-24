@@ -7,7 +7,6 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Main from './pages/Main';
 import Cart from './pages/Cart';
-import Ask from './pages/Ask';
 
 import { Reset } from 'styled-reset';
 import {
