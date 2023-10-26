@@ -33,8 +33,10 @@ const Signup = () => {
           user_name: name,
         },
         {
-          'Content-Type': 'application/json',
-          authorization: 'Bearer ' + sessionStorage.getItem('token'),
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: 'Bearer ' + sessionStorage.getItem('token'),
+          },
         }
       );
 

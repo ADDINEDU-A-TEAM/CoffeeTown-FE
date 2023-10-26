@@ -28,8 +28,10 @@ const Login = ({ user, setUser }) => {
           user_password: loginPassword,
         },
         {
-          'Content-Type': 'application/json',
-          authorization: 'Bearer ' + sessionStorage.getItem('token'),
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: 'Bearer ' + sessionStorage.getItem('token'),
+          },
         }
       );
       if (response.status == 200) {
