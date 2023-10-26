@@ -76,10 +76,11 @@ const App = ({ field }) => {
 
   const fetchData = async () => {
     await axios
-      .get('http://localhost:8000/main/list', {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/main/list`, {
         params: { ...searchQuery },
       })
       .then((result) => setData(result.data));
+    console.log('data', data);
   };
 
   return (

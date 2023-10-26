@@ -5,12 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import AgreeUse from '../components/AgreeUse';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import { Button, Modal } from 'react-bootstrap';
 
 const Signup = () => {
   const [error, setError] = useState('');
@@ -25,7 +25,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:8000/users/join',
+        `${process.env.REACT_APP_BACKEND_URL}/users/join`,
         {
           user_email: email,
           user_password: password,
@@ -39,7 +39,7 @@ const Signup = () => {
       );
 
       if (response.status == 201) {
-        window.alert('회원가입 되었습니다');
+        window.alert('회원가입이 성공적으로 되었습니다');
         navigate('/');
       } else {
         throw new Error(response.data.message);
@@ -119,6 +119,7 @@ const Signup = () => {
                 type='submit'
                 value='회원가입'
               />
+
               {''}
               <p className='subTxt mb-5'>
                 * 커피타운은 Chrome, Firefox, Safari 브라우저에 최적화
