@@ -35,7 +35,7 @@ const Signup = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            authorization: 'Bearer ' + sessionStorage.getItem('token'),
+            Authorization: 'Bearer ' + sessionStorage.getItem('token'),
           },
         }
       );
