@@ -25,7 +25,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/users/join`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/join`,
         {
           user_email: email,
           user_password: password,

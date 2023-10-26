@@ -76,7 +76,7 @@ const App = ({ field }) => {
 
   const fetchData = async () => {
     await axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/main/list`, {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/main/list`, {
         params: { ...searchQuery },
       })
       .then((result) => setData(result.data));
